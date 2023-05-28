@@ -27,4 +27,4 @@ EffiMax is a production process optimization software that aims to maximize effi
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/effimax.git
+git clone https://github.com/doloadama/effimax.git
