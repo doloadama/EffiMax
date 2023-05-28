@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Main
+# main.py
 
 from flask import Flask
 
