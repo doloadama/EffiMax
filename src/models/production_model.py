@@ -1,21 +1,26 @@
 #!/usr/bin/env python3
 # production_model.py
 
-class Component:
+class Material:
     """
-    Represents a component of the production process.
+    Represents the raw material in the production process.
     """
 
-    def __init__(self, name, quantity):
+    def __init__(self, name, input_quantity, output_quantity, previous_stock):
         """
-        Initializes a Component object.
+        Initializes a Material object.
 
         Args:
-            name (str): The name of the component.
-            quantity (int): The quantity of the component.
+            name (str): The name of the raw material.
+            input_quantity (float): The quantity of the raw material as input.
+            output_quantity (float): The quantity of the raw material as output.
+            previous_stock (float): The stock of the raw material from the previous cycle.
         """
         self.name = name
-        self.quantity = quantity
+        self.input_quantity = input_quantity
+        self.output_quantity = output_quantity
+        self.previous_stock = previous_stock # the previous stock is the stock before the input
+        self.stock = previous_stock + input_quantity - output_quantity
 
 
 class Parameter:
