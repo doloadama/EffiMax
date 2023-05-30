@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # production_indicators.py
 
 def calculate_production_rate(output_quantity, running_time):
