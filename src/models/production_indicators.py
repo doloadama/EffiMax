@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # production_indicators.py
 
 def calculate_production_rate(output_quantity, running_time):
@@ -16,48 +15,47 @@ def calculate_production_rate(output_quantity, running_time):
     return production_rate
 
 
-def calculate_efficiency(actual_production_rate, maximum_production_rate):
+def calculate_quality_rate(acceptable_quantity, total_quantity):
     """
-    Calculates the efficiency.
+    Calculates the quality rate.
 
     Args:
-        actual_production_rate (float): The actual production rate.
-        maximum_production_rate (float): The maximum achievable production rate.
+        acceptable_quantity (float): The quantity of acceptable output.
+        total_quantity (float): The total quantity of output produced.
 
     Returns:
-        float: The efficiency.
+        float: The quality rate.
     """
-    efficiency = (actual_production_rate / maximum_production_rate) * 100
-    return efficiency
+    quality_rate = (acceptable_quantity / total_quantity) * 100
+    return quality_rate
 
 
-def calculate_yield(output_quantity, input_quantity):
+def calculate_availability_rate(working_time, total_time):
     """
-    Calculates the yield.
+    Calculates the availability rate.
 
     Args:
-        output_quantity (float): The quantity of the output produced.
-        input_quantity (float): The quantity of the input used.
+        working_time (float): The working time of the machine.
+        total_time (float): The total time including working and non-working time.
 
     Returns:
-        float: The yield.
+        float: The availability rate.
     """
-    yield_value = (output_quantity / input_quantity) * 100
-    return yield_value
+    availability_rate = (working_time / total_time) * 100
+    return availability_rate
+#!/usr/bin/env python3 
 
-
-# Additional indicator calculation functions can be added here...
-
-
-def calculate_indicators(output_quantity, running_time, maximum_production_rate, input_quantity):
+def calculate_indicators(output_quantity, running_time, acceptable_quantity, total_quantity, working_time, total_time):
     """
     Calculates the key production indicators.
 
     Args:
         output_quantity (float): The quantity of the output produced.
         running_time (float): The running time of the machine.
-        maximum_production_rate (float): The maximum achievable production rate.
-        input_quantity (float): The quantity of the input used.
+        acceptable_quantity (float): The quantity of acceptable output.
+        total_quantity (float): The total quantity of output produced.
+        working_time (float): The working time of the machine.
+        total_time (float): The total time including working and non-working time.
 
     Returns:
         dict: A dictionary containing the calculated production indicators.
@@ -65,9 +63,7 @@ def calculate_indicators(output_quantity, running_time, maximum_production_rate,
     indicators = {}
 
     indicators['Production Rate'] = calculate_production_rate(output_quantity, running_time)
-    indicators['Efficiency'] = calculate_efficiency(indicators['Production Rate'], maximum_production_rate)
-    indicators['Yield'] = calculate_yield(output_quantity, input_quantity)
-
-    # Additional indicators can be calculated and added to the dictionary here...
+    indicators['Quality Rate'] = calculate_quality_rate(acceptable_quantity, total_quantity)
+    indicators['Availability Rate'] = calculate_availability_rate(working_time, total_time)
 
     return indicators
